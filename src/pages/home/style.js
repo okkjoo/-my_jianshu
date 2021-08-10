@@ -1,6 +1,7 @@
 import styled from "styled-components";
 export const HomeWrapper = styled.div`
-	width: 900px;
+	width: 960px;
+	height: 100vh;
 	margin: 0 auto;
 `;
 export const HomeLeft = styled.div`
@@ -14,10 +15,9 @@ export const HomeLeft = styled.div`
 	}
 `;
 export const HomeRight = styled.div`
-	width: 240px;
+	width: 280px;
 	float: right;
 	height: 900px;
-	background-color: lightblue;
 `;
 export const TopicWrapper = styled.div`
 	padding: 20px 0 10px 0;
@@ -72,4 +72,23 @@ export const ListInfo = styled.div`
 		line-height: 24px;
 		color: #999;
 	}
+`;
+
+export const RecommendWrapper = styled.div`
+	margin: 30px 0;
+	width: 280px;
+`;
+export const RecommendItem = styled.div`
+	width: 280px;
+	height: 50px;
+	background: url(${props => props.imgUrl});
+	background-size: contain;
+`;
+export const WriterWrapper = styled.div`
+	width: 278px;
+	border: 1px solid #dcdcdc;
+	border-radius: 3px;
+	height: 300px;
+	line-height: 300px;
+	text-align: center;
 `;
