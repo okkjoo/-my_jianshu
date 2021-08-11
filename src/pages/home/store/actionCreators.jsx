@@ -28,3 +28,7 @@ export const getMoreList = page => {
 		});
 	};
 };
+export const toggleScrollTopShow = flag => ({
+	type: constants.TOGGLE_SCROLL_TOP_SHOW,
+	flag,
+});

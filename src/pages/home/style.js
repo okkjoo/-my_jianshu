@@ -1,8 +1,12 @@
 import styled from "styled-components";
 export const HomeWrapper = styled.div`
 	width: 960px;
-	height: 100vh;
 	margin: 0 auto;
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
 `;
 export const HomeLeft = styled.div`
 	margin-left: 15px;
@@ -103,4 +107,17 @@ export const LoadMore = styled.div`
 	border-radius: 20px;
 	color: #fff;
 	cursor: pointer;
+`;
+
+export const BackTop = styled.div`
+	position: fixed;
+	width: 30px;
+	height: 30px;
+	right: 50px;
+	bottom: 50px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #ccc;
+	font-size: 30px;
+	font-weight: 900;
 `;

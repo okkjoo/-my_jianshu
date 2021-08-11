@@ -4,11 +4,23 @@ import Topic from "./components/Topic";
 import List from "./components/List";
 import Recommend from "./components/Recommend";
 import Writer from "./components/Writer";
-import { HomeWrapper, HomeLeft, HomeRight } from "./style";
+import { HomeWrapper, HomeLeft, HomeRight, BackTop } from "./style";
 import { actionCreators } from "./store";
 class Home extends Component {
+	handleScrollTop = () => {
+		window.scrollTo(0, 0);
+	};
+	bindEvents = () => {
+		const { changeScrollTopShow } = this.props;
+		window.addEventListener("scroll", changeScrollTopShow);
+	};
 	componentDidMount() {
 		this.props.changeHomeData();
+		this.bindEvents();
+	}
+	componentWillUnmount() {
+		const { changeScrollTopShow } = this.props;
+		window.removeEventListener("scroll", changeScrollTopShow);
 	}
 	render() {
 		return (
@@ -26,14 +38,26 @@ class Home extends Component {
 					<Recommend />
 					<Writer />
 				</HomeRight>
+				{this.props.showScroll ? (
+					<BackTop onClick={this.handleScrollTop}>↑</BackTop>
+				) : null}
 			</HomeWrapper>
 		);
 	}
 }
+const mapStateToProps = state => ({
+	showScroll: state.getIn(["home", "showScroll"]),
+});
 const mapDispatchToProps = dispatch => ({
 	changeHomeData() {
-		const action = actionCreators.getHomeInfo();
-		dispatch(action);
+		dispatch(actionCreators.getHomeInfo());
+	},
+	changeScrollTopShow(e) {
+		if (document.documentElement.scrollTop > 400) {
+			dispatch(actionCreators.toggleScrollTopShow(true));
+		} else {
+			dispatch(actionCreators.toggleScrollTopShow(false));
+		}
 	},
 });
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
