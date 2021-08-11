@@ -18,6 +18,7 @@ export const GlobalStyled = createGlobalStyle`
   padding: 0;
   border: 0;
   font-size: 100%;
+  font-family:sans-serif ;
   font: inherit;
   vertical-align: baseline;
   }
