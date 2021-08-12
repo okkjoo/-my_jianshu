@@ -1,1 +1,1 @@
-export const a = "a";
+export const CHANGE_DETAIL = "detail/CHANGE_DETAIL";
