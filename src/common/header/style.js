@@ -177,4 +177,5 @@ export const Button = styled.div`
 		color: #fff;
 		background-color: #ec6149;
 	}
+	cursor: pointer;
 `;
