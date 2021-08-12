@@ -1,8 +1,12 @@
 import styled from "styled-components";
 export const HomeWrapper = styled.div`
-	overflow: hidden;
 	width: 960px;
 	margin: 0 auto;
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
 `;
 export const HomeLeft = styled.div`
 	margin-left: 15px;

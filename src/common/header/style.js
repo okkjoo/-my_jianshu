@@ -2,10 +2,15 @@ import styled from "styled-components";
 import logoPic from "../../statics/logo.png";
 
 export const HeaderWrapper = styled.div`
-	overflow: hidden;
+	z-index: 1;
 	position: relative;
 	height: 56px;
 	border-bottom: 1px solid #f0f0f0;
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
 `;
 
 export const Logo = styled.div`
