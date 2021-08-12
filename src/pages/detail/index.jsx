@@ -4,7 +4,10 @@ import { DetailWrapper, Header, Content } from "./style";
 import { actionCreators } from "./store";
 class Detail extends PureComponent {
 	componentDidMount() {
-		this.props.getDetail();
+		const {
+			match: { id },
+		} = this.props;
+		this.props.getDetail(id);
 	}
 
 	render() {
@@ -23,8 +26,8 @@ const mapStateToProps = state => ({
 	content: state.getIn(["detail", "content"]),
 });
 const mapDispatchToProps = dispatch => ({
-	getDetail() {
-		dispatch(actionCreators.getDetail());
+	getDetail(id) {
+		dispatch(actionCreators.getDetail(id));
 	},
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Detail);
