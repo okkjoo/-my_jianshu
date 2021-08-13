@@ -14,7 +14,8 @@ function App() {
 		<Provider store={store}>
 			<GlobalStyled />
 			<GlobalIconfontStyle />
-			<BrowserRouter>
+			{/* Avoid routing problem in Github Page */}
+			<BrowserRouter basename={process.env.PUBLIC_URL}>
 				<Header />
 				<Route path="/" exact component={Home} />
 				<Route path="/login" exact component={Login} />
