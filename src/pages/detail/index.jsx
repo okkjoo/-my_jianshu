@@ -5,9 +5,8 @@ import { actionCreators } from "./store";
 import { withRouter } from "react-router-dom";
 class Detail extends PureComponent {
 	componentDidMount() {
-		const {
-			match: { id },
-		} = this.props;
+		const { id } = this.props.match.params;
+
 		this.props.getDetail(id);
 	}
 
